@@ -43,7 +43,11 @@ Start with `pdfs/proposal.pdf` or open the `nn-from-scratch` in your favorite Ju
 
 ## License
 
-This work is shared under an open license (TBD — likely MIT or Creative Commons). Please feel free to remix and adapt it for your own teaching or tinkering.
+This work is licensed under Creative Commons Attribution-ShareAlike 4.0 International. To view a copy of this license, visit [https://creativecommons.org/licenses/by-sa/4.0/](https://creativecommons.org/licenses/by-sa/4.0/).
+
+## Author
+
+This seminar is designed and maintained by Guillermo Garza.
 
 ---
 
