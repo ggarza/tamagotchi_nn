@@ -1,0 +1,280 @@
+\documentclass{book}
+\input{preamble}
+
+\title{Neural Network Overview \& Build a Simple Perceptron}
+
+\begin{document}
+\maketitle
+
+\section*{Session Goals}
+\begin{itemize}
+  \item Understand what a neural network is and how it is used.
+  \item Learn how a single perceptron makes decisions.
+  \item Build and experiment with a simple perceptron in Julia.
+\end{itemize}
+
+\section*{1. What is a Neural Network?}
+A neural network is a function made by combining simple units called neurons. Each neuron performs a basic computation, and when many are combined, the network can learn to perform tasks like classification, prediction, and decision-making.
+
+\subsection*{Motivating Idea}
+Imagine a robot butler who learns how to care for a virtual pet. When should it feed the pet? Play with it? Let it sleep? A neural network can learn these behaviors by looking at examples.
+
+\section*{2. The Perceptron: A Simple Neuron}
+A perceptron takes several inputs, applies weights to them, adds a bias, and passes the result through an activation function.
+
+\subsection*{Mathematics of a Perceptron}
+\begin{align*}
+  \text{Inputs:} & \quad x_1, x_2, \ldots, x_n \\
+  \text{Weights:} & \quad w_1, w_2, \ldots, w_n \\
+  \text{Bias:} & \quad b \\
+  \text{Weighted sum:} & \quad z = w_1 x_1 + w_2 x_2 + \ldots + w_n x_n + b \\
+  \text{Activation:} & \quad \text{output} = \text{step}(z)
+\end{align*}
+
+\subsection*{Example}
+\begin{itemize}
+  \item Inputs: hungry = 1, sleepy = 0, bored = 1
+  \item Weights: 0.8 (hungry), -0.5 (sleepy), 0.3 (bored)
+  \item Bias: -0.2
+  \item Weighted sum: $z = 0.8(1) + (-0.5)(0) + 0.3(1) - 0.2 = 0.9$
+  \item Output: step(0.9) = 1 \quad (decision: \textit{feed the pet})
+\end{itemize}
+
+\section*{3. Coding a Perceptron in Julia}
+\subsection*{Step-by-step}
+\begin{enumerate}
+  \item Define the inputs, weights, and bias:
+\begin{julia}
+inputs = [1.0, 0.0, 1.0]
+weights = [0.8, -0.5, 0.3]
+bias = -0.2
+\end{julia}
+
+  \item Define the prediction function:
+\begin{julia}
+function step(x)
+    return x >= 0 ? 1.0 : 0.0
+end
+
+function predict(inputs, weights, bias)
+    z = sum(inputs .* weights) + bias
+    return step(z)
+end
+
+predict(inputs, weights, bias)
+\end{julia}
+
+  \item Try different inputs and weights. What changes?
+\end{enumerate}
+
+\section*{4. What Comes Next?}
+Today we built a single perceptron. In future sessions, we'll stack them together and teach them to learn from data. This is how your robot butler will learn to care for its virtual pet.
+
+\vspace{1em}
+\noindent\textit{Optional challenge: Try to build a perceptron that only activates when exactly one of the inputs is 1.}
+
+
+\begin{tikzpicture}[>=Latex, node distance=1.8cm and 1.5cm, every node/.style={align=center}]
+
+  % Input nodes
+  \node (x1) at (0,2) {$x_1$};
+  \node (x2) at (0,1) {$x_2$};
+  \node (x3) at (0,0) {$x_3$};
+
+  % % Weights
+  \node[right=of x1] (w1) {};
+  \node[right=of x2] (w2) {};
+  \node[right=of x3] (w3) {};
+
+  % Summation node
+  \node[circle, draw, minimum size=1.2cm, right=1.5cm of x2] (sum) {$\sum + $
+    bias};
+
+  % Activation node
+  \node[circle, draw, minimum size=1.2cm, right=2cm of sum] (act) {step};
+
+  % Output
+  \node[right=1.5cm of act] (out) {$\hat{y}$};
+
+  % Arrows from inputs to sum
+  \draw[->] (x1) -- node[above] {$w_1$} (sum);
+  \draw[->] (x2) -- node[above] {$w_2$} (sum);
+  \draw[->] (x3) -- node[below] {$w_3$} (sum);
+
+  % Arrow from sum to activation
+  \draw[->] (sum) -- node[above] {$z$} (act);
+
+  % Arrow from activation to output
+  \draw[->] (act) -- (out);
+
+\end{tikzpicture}
+
+
+\begin{tikzpicture}[>=Latex, node distance=1.8cm and 1.8cm, every node/.style={align=center}, scale=1, transform shape]
+
+  % Input layer
+  \node (x1) at (0,2) {$x_1$};
+  \node (x2) at (0,1) {$x_2$};
+  \node (x3) at (0,0) {$x_3$};
+
+  % Hidden layer
+  \node[circle, draw, minimum size=1.2cm] (h1) at (3,2.2) {h$_1$};
+  \node[circle, draw, minimum size=1.2cm] (h2) at (3,0.8) {h$_2$};
+
+  % Output layer
+  \node[circle, draw, minimum size=1.2cm] (y) at (6,1.5) {$\hat{y}$};
+
+  % Connections: Input to hidden
+  \foreach \i in {x1,x2,x3} {
+    \foreach \j in {h1,h2} {
+      \draw[->] (\i) -- (\j);
+    }
+  }
+
+  % Connections: Hidden to output
+  \foreach \j in {h1,h2} {
+    \draw[->] (\j) -- (y);
+  }
+
+\end{tikzpicture}
+
+
+\section*{5. What Happens When We Stack Perceptrons?}
+
+A neural network is built by stacking perceptrons into layers.
+
+\begin{itemize}
+  \item The first layer takes in the input data (like hunger, boredom, tiredness).
+  \item Each neuron in the hidden layer computes its own weighted sum and activation.
+  \item These outputs become the inputs for the next layer.
+\end{itemize}
+
+This is called a \textit{feedforward neural network} because the data flows forward from inputs to outputs.
+
+\vspace{1em}
+
+The diagram below shows a simple network:
+\begin{itemize}
+  \item 3 input features
+  \item 2 hidden neurons
+  \item 1 final output neuron (e.g., “should the robot take an action?”)
+\end{itemize}
+
+Each arrow has a weight. The network learns by adjusting these weights.
+
+
+\section*{6. Coding a Two-Layer Network in Julia (Forward Pass Only)}
+
+We’ll build a simple feedforward network using the perceptron function we already wrote. This time, we’ll define two layers:
+
+\begin{itemize}
+  \item Hidden layer: 2 perceptrons
+  \item Output layer: 1 perceptron that takes the outputs from the hidden layer
+\end{itemize}
+
+\subsection*{Step 1: Define the activation function and perceptron again}
+
+\begin{julia}
+function step(x)
+    return x >= 0 ? 1.0 : 0.0
+end
+
+function perceptron(inputs, weights, bias)
+    z = sum(inputs .* weights) + bias
+    return step(z)
+end
+\end{julia}
+
+\subsection*{Step 2: Define the hidden layer}
+
+\begin{julia}
+function hidden_layer(inputs)
+    # Hidden neuron 1
+    w1 = [0.5, -0.6, 0.1]
+    b1 = 0.0
+    h1 = perceptron(inputs, w1, b1)
+
+    # Hidden neuron 2
+    w2 = [-0.3, 0.8, 0.7]
+    b2 = -0.1
+    h2 = perceptron(inputs, w2, b2)
+
+    return [h1, h2]
+end
+\end{julia}
+
+\subsection*{Step 3: Define the output layer}
+
+\begin{julia}
+function output_layer(hidden_outputs)
+    w_out = [0.6, -0.4]
+    b_out = 0.2
+    return perceptron(hidden_outputs, w_out, b_out)
+end
+\end{julia}
+
+\subsection*{Step 4: Run the full network}
+
+\begin{julia}
+function predict(inputs)
+    h = hidden_layer(inputs)
+    return output_layer(h)
+end
+
+# Try it!
+inputs = [1.0, 0.0, 1.0]
+println("Network output: ", predict(inputs))
+\end{julia}
+
+\subsection*{Optional Challenges}
+
+\begin{itemize}
+  \item Try different weights and biases — can you make the network behave like an OR or AND function?
+  \item Add a third hidden neuron. What changes?
+  \item Replace the step function with a smooth activation like \texttt{sigmoid(x) = 1 / (1 + exp(-x))}.
+\end{itemize}
+
+
+
+\section*{7. Debugging Challenge: Why Doesn’t the Robot Feed the Pet?}
+
+Suppose the robot is using the two-layer network defined earlier.
+
+It receives the following input state:
+\begin{itemize}
+  \item hungry = 1.0
+  \item sleepy = 0.0
+  \item bored = 1.0
+\end{itemize}
+
+The network is supposed to output 1.0 when the pet should be fed, but instead, it outputs \texttt{0.0}.
+
+The weights and biases are as follows:
+
+\textbf{Hidden layer:}
+\begin{itemize}
+  \item $h_1$: weights = $[0.5,\ -0.6,\ 0.1]$, bias = $0.0$
+  \item $h_2$: weights = $[-0.3,\ 0.8,\ 0.7]$, bias = $-0.1$
+\end{itemize}
+
+\textbf{Output layer:}
+\begin{itemize}
+  \item weights = $[0.6,\ -0.4]$, bias = $0.2$
+\end{itemize}
+
+\subsection*{Your Task:}
+
+\begin{enumerate}
+  \item Compute the output of each hidden neuron by hand.
+  \item Use those outputs to compute the final output of the network.
+  \item Explain why the output is \texttt{0.0}.
+  \item Suggest one change (to a weight or bias) that could make the network trigger (output 1.0) instead.
+\end{enumerate}
+
+\subsection*{Optional Extension:}
+
+Try your suggested fix in the Julia code and confirm that the output changes.
+
+
+
+\end{document}

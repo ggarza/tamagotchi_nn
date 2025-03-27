@@ -1,0 +1,155 @@
+\documentclass{book}
+\input{preamble}
+
+
+\title{Train Your Tiny Robot - Intro to Learning and Loss}
+
+\begin{document}
+\maketitle
+
+\section*{Session Goals}
+\begin{itemize}
+  \item Understand what it means for a neural network to "learn"
+  \item Define and compute a simple loss function
+  \item Practice adjusting weights by hand to reduce loss
+\end{itemize}
+
+\section*{1. What Does It Mean to Learn?}
+Learning means making fewer mistakes over time. In a neural network, this means adjusting the weights and biases to make better predictions.
+
+\section*{2. Predicting with a Known Target}
+Suppose we want the network to output \texttt{1.0} (e.g., "yes, feed the pet"), but instead it outputs \texttt{0.0}. We need a way to measure how wrong that is.
+
+\section*{3. Defining a Loss Function}
+A loss function gives a number that represents how bad a prediction is.
+
+We’ll use a simple squared error loss:
+\[
+\text{loss} = (\hat{y} - y)^2
+\]
+Where:
+\begin{itemize}
+  \item \( \hat{y} \) is the prediction
+  \item \( y \) is the true label
+\end{itemize}
+
+\section*{4. Manual Training Activity (Single Example)}
+Start with the following:
+\begin{itemize}
+  \item Inputs: \([1.0,\ 0.0,\ 1.0]\)
+  \item True label: \( y = 1.0 \)
+\end{itemize}
+
+Compute:
+\begin{enumerate}
+  \item Output of the network
+  \item The loss
+\end{enumerate}
+
+Then, change one of the weights or the bias and recompute:
+\begin{itemize}
+  \item Is the prediction closer to 1.0?
+  \item Did the loss go down?
+\end{itemize}
+
+Repeat a few times to see if you can reduce the loss.
+
+\section*{5. Coding the Loss Function}
+Here’s a function to compute the loss in Julia:
+\begin{julia}
+function loss(prediction, target)
+    return (prediction - target)^2
+end
+\end{julia}
+
+Try adjusting weights in your 2-layer network from the previous session. Can you get the loss to decrease?
+
+\section*{Optional Challenge}
+Try this with two or three training examples. Compute the total loss:
+\[
+\text{total loss} = \frac{1}{n} \sum_{i=1}^{n} (\hat{y}_i - y_i)^2
+\]
+
+Can you find weights that work well for all of them?
+
+
+\section*{6. How to Train the Network}
+
+Training a neural network means finding the weights and biases that give the best predictions.
+
+More precisely, we want to:
+\begin{itemize}
+  \item Minimize the total loss across all our training examples
+  \item Adjust weights and biases little by little until we find better ones
+\end{itemize}
+
+\subsection*{The Training Loop (Conceptually)}
+
+\begin{enumerate}
+  \item Start with some initial weights and biases (can be random)
+  \item For each training example:
+    \begin{itemize}
+      \item Compute the output of the network
+      \item Compute the loss
+      \item Adjust the weights and biases slightly to reduce the loss
+    \end{itemize}
+  \item Repeat the process for many rounds (called \textit{epochs})
+\end{enumerate}
+
+\subsection*{Key Idea: Gradient Descent (Preview)}
+
+Later, we’ll use a method called \textit{gradient descent}, which uses calculus to figure out how to change each weight to reduce the loss the fastest.
+
+For now, think of it like this:
+
+\begin{itemize}
+  \item Try small changes to a weight and see if the loss goes down
+  \item If yes, keep going in that direction
+  \item If no, try a different direction
+\end{itemize}
+
+\subsection*{Optional Activity: Manual Descent}
+
+Pick one weight. Try increasing or decreasing it in small steps and write down the new loss each time. Which direction reduces the loss?
+
+This is the same idea that real training uses, just done by hand!
+
+\bigskip
+
+\noindent Coming soon: letting the computer do this for you (and for many examples at once).
+
+\subsection*{Manual Training Table}
+
+Use the table below to record how changes to one weight affect the prediction and the loss.
+
+\bigskip
+
+\begin{tabular}{|c|c|c|c|}
+\hline
+Weight Value & Prediction ($\hat{y}$) & True Label ($y$) & Loss = $(\hat{y} - y)^2$ \\
+\hline
+ & & & \\
+\hline
+ & & & \\
+\hline
+ & & & \\
+\hline
+ & & & \\
+\hline
+ & & & \\
+\hline
+\end{tabular}
+
+\bigskip
+
+Try adjusting:
+\begin{itemize}
+  \item One weight (e.g., the first weight in the hidden layer)
+  \item Or the bias
+\end{itemize}
+
+Can you find a direction that decreases the loss?
+
+\end{document}
+
+
