@@ -1,4 +1,4 @@
-# Learn to Train Your Robot Butler  
+# Learn to Train Your Robot Butler 🐾🤖
 *A Playful Approach to Neural Networks, AI, and Julia Programming*
 
 Welcome to the official repository for the seminar **Learn to Train Your Robot Butler** — an exploration of neural networks, artificial intelligence, and the Julia programming language, all through the lens of building a virtual pet in the spirit of the Tamagotchi toys.
@@ -28,6 +28,7 @@ This repository includes:
 - `pet-sim/`: Code for simulating your virtual pet
 - `nn-from-scratch/`: Materials for implementing your own neural network
 - `examples/`: Sample pets, trained models, and weird experiments
+- `pdfs/`: PDFs of the handouts and readings
 - LaTeX source files in the top-level directory for handouts, readings, and exercises
 
 ## Getting Started
@@ -38,7 +39,7 @@ To follow along, you'll need:
 - Basic familiarity with terminal/command line usage
 - A sense of humor and curiosity
 
-Start with `seminar-notes/overview.pdf` or open the `notebooks/` in your favorite Julia environment.
+Start with `pdfs/proposal.pdf` or open the `nn-from-scratch` in your favorite Julia environment.
 
 ## License
 
