@@ -1,24 +1,20 @@
-# Learn to Train Your Robot Butler 🐾🤖
-*A Playful Approach to Neural Networks, AI, and Julia Programming*
+# How to Train Your Robot Butler 🐾🤖
+*A Playful Approach to Neural Networks and Julia Programming*
 
-Welcome to the official repository for the seminar **Learn to Train Your Robot Butler** — an exploration of neural networks, artificial intelligence, and the Julia programming language, all through the lens of building a virtual pet in the spirit of the Tamagotchi toys.
+This is the repository for the seminar **How to Train Your Robot Butler** — an exploration of neural networks, artificial intelligence, and the Julia programming language, all through the lens of building a virtual pet in the spirit of the Tamagotchi toys.
 
 ## What This Is
 
-This seminar guides participants through the process of building a neural network from scratch in Julia. Along the way, we'll simulate a virtual pet and train an AI to take care of it — just like a well-mannered robot butler.
+This seminar guides participants through the process of building a neural network from scratch in Julia. Along the way, we'll simulate a virtual pet and train a neural network to take care of it — just like a well-mannered robot butler.
 
-The seminar is designed for beginners. No prior experience with Julia or neural networks is required. Expect to learn by doing, tinkering, and playing. There are no grades, but by the end, you'll have built something real.
+The seminar is designed for beginners. No prior experience with Julia or neural networks is required. Expect to learn by doing, tinkering, and playing.
 
 ## What You'll Build
 
 - A simple simulation of a virtual pet, with needs like hunger, boredom, and sleep
 - A neural network implemented from scratch in Julia
 - A training loop that teaches your AI to keep the pet alive and happy
-- A deeper understanding of how machine learning systems work
 
-## Who This Is For
-
-This seminar is open to anyone interested in AI, programming, or just building something weird and wonderful. While aimed at undergraduate students, graduate students and faculty are also welcome.
 
 ## Contents
 
@@ -35,11 +31,11 @@ This repository includes:
 
 To follow along, you'll need:
 
-- Julia (we recommend the latest stable release)
+- Julia (the latest stable release)
 - Basic familiarity with terminal/command line usage
 - A sense of humor and curiosity
 
-Start with `pdfs/proposal.pdf` or open the `nn-from-scratch` in your favorite Julia environment.
+Start with `pdfs/proposal.pdf` or open the folder `nn-from-scratch` in your favorite Julia environment.
 
 ## License
 
@@ -48,7 +44,3 @@ This work is licensed under Creative Commons Attribution-ShareAlike 4.0 Internat
 ## Author
 
 This seminar is designed and maintained by Guillermo Garza.
-
----
-
-Have fun, train your butler, and don't let your virtual pet starve. 🐾🤖
