@@ -17,7 +17,7 @@ This seminar introduces participants to neural networks through the lens of simu
 
 \section{Participation and Structure}
 
-There are no graded assignments or exams. Participants are expected to:
+Participants are expected to:
 \begin{itemize}[itemsep=1ex]
     \item Engage in weekly seminar sessions and hands-on activities
     \item Contribute to discussions and collaborative exploration
@@ -49,58 +49,16 @@ By the end of the seminar, participants will:
 
 As a central project, participants will create and interact with a simplified virtual pet simulator. The pet will have internal states (such as hunger, boredom, or fatigue) and respond to external actions (like feeding, playing, or resting). After defining the rules of the simulation, participants will generate training data and develop a neural network to approximate the behavior of an ideal caretaker.
 
-\section{Weekly Topics and Milestones}
-
-\textbf{Duration:} 15 weeks \\
-\textbf{Meetings:} Weekly 2--3 hour seminar sessions
-
-\begin{center}
-\begin{tabular}{@{}llp{7cm}@{}}
-\toprule
-\textbf{Week} & \textbf{Topic} & \textbf{Milestone} \\
-\midrule
-1 & Intro to Julia & Julia install + basic syntax \\
-2 & Control flow & Build a text-based mini-game \\
-3 & Functions \& structs & Design a pet simulator prototype \\
-4 & Arrays \& matrix operations & Implement feedforward logic \\
-5 & Neural network overview & Build a simple perceptron \\
-6 & Activation \& loss functions & Implement sigmoid and loss \\
-7 & Forward propagation & Complete multi-layer forward pass \\
-8 & Backpropagation & Gradient calculation by hand \\
-9 & Training loop & Begin model training \\
-10 & Simulation design & Define pet rules and states \\
-11 & Data generation & Log caretaker behavior \\
-12 & Model training & Train NN on simulated data \\
-13 & Testing \& refinement & Improve model performance \\
-14 & Project development & Finalize simulation and network \\
-15 & Project showcase & Demonstrations and reflections \\
-\bottomrule
-\end{tabular}
-\end{center}
-
 \section{Tools and Materials}
 
 \begin{itemize}[itemsep=1ex]
     \item Programming Language: Julia
-    \item Coding Environment: Pluto.jl notebooks
+    \item Coding Environment: Visual Studio Code and Pluto.jl notebooks
     \item Simulation Framework: Custom, participant-built
-    \item Optional Tools: Git and version control platforms for collaboration
+    \item Version Control Tools: Git and version control platforms for collaboration
 \end{itemize}
 
-\section{Challenges and Strategies}
 
-\begin{center}
-\begin{tabular}{@{}p{5cm}p{9cm}@{}}
-\toprule
-\textbf{Challenge} & \textbf{Strategy} \\
-\midrule
-Limited programming background & Scaffold concepts with examples and hands-on walkthroughs \\
-Matrix operations and math & Provide visualizations and intuitive analogies \\
-Simulation complexity & Start with minimal designs, encourage iteration \\
-Understanding neural network mechanics & Break down forward/backward passes with step-by-step visuals \\
-\bottomrule
-\end{tabular}
-\end{center}
 
 \section{Expected Outcomes}
 
@@ -117,16 +75,11 @@ Participants will leave the seminar with:
 \section*{Seminar Syllabus}
 
 \subsection*{Title}
-Learn to Train Your Robot Butler — A Playful Approach to Neural Networks, AI, and Julia Programming
+How to Train Your Robot Butler — A Playful Approach to Neural Networks, AI, and Julia Programming
 
 \subsection*{Overview}
 This seminar explores neural networks and AI through the playful and hands-on challenge of building a virtual pet. Participants will learn to program in Julia, simulate a pet with changing needs, and train a neural network to respond to those needs like a helpful robot butler. No prior programming or machine learning experience is expected.
 
-\subsection*{Structure}
-Weekly sessions over one semester (14–15 weeks)
-Participants will write code, reflect on AI behavior, and build a final project: a simulated pet cared for by a neural network.
-All programming will be done in Julia.
-There are no grades, but participants are expected to engage actively and build something by the end.
 
 \subsection*{Course-Level Learning Objectives}
 \begin{itemize}
@@ -140,100 +93,106 @@ There are no grades, but participants are expected to engage actively and build 
   \item Share code and ideas with others in the seminar
 \end{itemize}
 
-\subsection*{Weekly Schedule and Learning Objectives}
+\subsection*{Tentative Schedule and Learning Objectives}
 
-Week 1: Welcome to Your Robot Butler
+\begin{enumerate}[LO 1., itemindent=2em]
+  \item
+Welcome to Your Robot Butler
 \begin{itemize}
   \item Explore seminar goals and project theme
   \item Install Julia and run basic code
   \item Reflect on what it means to train a robot
 \end{itemize}
 
-Week 2: Julia for Curious Humans
+\item
+ Julia for Curious Humans
 \begin{itemize}
   \item Use variables, functions, and conditionals in Julia
   \item Write simple behavior rules
 \end{itemize}
 
-Week 3: Simulating a Virtual Pet (Part 1)
+\item
+ Simulating a Virtual Pet (Part 1)
 \begin{itemize}
   \item Define pet states (hunger, mood, energy, etc.)
   \item Update states over time using code
 \end{itemize}
 
-Week 4: Simulating a Virtual Pet (Part 2)
+\item
+ Simulating a Virtual Pet (Part 2)
 \begin{itemize}
   \item Add inputs and outputs to interact with the pet
   \item Record and visualize how the pet changes
 \end{itemize}
 
-Week 5: Thinking in Arrays
+\item
+ Thinking in Arrays
 \begin{itemize}
   \item Work with vectors and matrices in Julia
   \item Represent and manipulate state using arrays
 \end{itemize}
 
-Week 6: A Peek Inside Neural Networks
+
+\item A Peek Inside Neural Networks
 \begin{itemize}
   \item Understand neurons, weights, and activations
   \item Compute outputs from a simple network by hand
 \end{itemize}
 
-Week 7: Writing Your Own Neural Net
+\item Writing Your Own Neural Net
 \begin{itemize}
   \item Write code for a feedforward neural network
   \item Use activation functions like sigmoid and ReLU
 \end{itemize}
 
-Week 8: Midpoint Milestone
-\begin{itemize}
-  \item Share a working version of your pet simulation
-  \item Reflect on your design and coding so far
-  \item Offer feedback on others' projects
-\end{itemize}
 
-Week 9: How Neural Networks Learn
+\item How Neural Networks Learn
 \begin{itemize}
   \item Explore the concept of loss and gradient descent
   \item Update weights using backpropagation
 \end{itemize}
 
-Week 10: Training the Network
+\item
+Training the Network
 \begin{itemize}
   \item Write a training loop
   \item Feed real data into the model
   \item Observe and plot training progress
 \end{itemize}
 
-Week 11: Data from a Digital Pet
+\item
+Data from a Digital Pet
 \begin{itemize}
   \item Collect state-action pairs from the simulation
   \item Format and clean data for learning
 \end{itemize}
 
-Week 12: Watching the Robot Learn
+\item
+Watching the Robot Learn
 \begin{itemize}
   \item Evaluate model behavior
   \item Adjust training to improve results
 \end{itemize}
 
-Week 13: Let the Butler Take Over
+\item Let the Butler Take Over
 \begin{itemize}
   \item Connect the neural network to the pet simulation
   \item Automate care decisions in real time
 \end{itemize}
 
-Week 14: Project Studio
+\item
+ Project Studio
 \begin{itemize}
   \item Work on polishing your project
   \item Add creative or expressive features
 \end{itemize}
 
-Week 15: Final Showcase
+\item Final Showcase
 \begin{itemize}
   \item Present your working robot butler
   \item Reflect on what you built and learned
   \item Discuss the future of playful AI
 \end{itemize}
+\end{enumerate}
 
 \end{document}
