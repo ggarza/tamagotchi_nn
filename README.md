@@ -31,6 +31,7 @@ This repository includes:
 To follow along, you'll need:
 
 - Julia (the latest stable release)
+- Visual Studio Code (or your favorite text editor)
 - Basic familiarity with terminal/command line usage
 - A sense of humor and curiosity
 
