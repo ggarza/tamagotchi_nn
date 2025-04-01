@@ -23,7 +23,6 @@ This repository includes:
 - `julia/`: Notebooks and example scripts for learning julia
 - `pet-sim/`: Code for simulating your virtual pet
 - `nn-from-scratch/`: Materials for implementing your own neural network
-- `examples/`: Sample pets, trained models, and weird experiments
 - `pdfs/`: PDFs of the handouts and readings
 - LaTeX source files in the top-level directory for handouts, readings, and exercises
 
