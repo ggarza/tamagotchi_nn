@@ -7,6 +7,8 @@ This is the repository for the seminar **How to Train Your Robot Butler** — an
 
 This seminar guides participants through the process of building a neural network from scratch in Julia. Along the way, we'll simulate a virtual pet and train a neural network to take care of it — just like a well-mannered robot butler.
 
+This project is based on the excellent online book [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/) by Michael Nielsen. While we put our own playful spin on things, many core ideas and structures are inspired by that resource.
+
 The seminar is designed for beginners. No prior experience with Julia or neural networks is required. Expect to learn by doing, tinkering, and playing.
 
 ## What You'll Build
