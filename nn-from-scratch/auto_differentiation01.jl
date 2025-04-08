@@ -28,13 +28,17 @@ Base.show(io::IO, x::D) = print(io, x.value, " + ", x.derivative, "ε") # show d
 
 Base.exp(x::D) = D(exp(x.value), exp(x.value) * x.derivative) # define exp for dual numbers
 
+const ε = D(0,1)
+
 
 x = 49
 Babylonian(D(x, 1))
 
 
 function logistic(x)
-    1/(1 + exp(0-x))
+    1/(1 + exp(-x))
 end
 
 exp(D(7,1))
+
+logistic(D(7,1))
